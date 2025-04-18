@@ -12,7 +12,7 @@ import cv2
 import numpy as np
 
 # 初始化服务器
-app = Server("yolo-server")
+app = Server("mcp-server-cvdlt")
 
 def load_image(image_url: str) -> tuple[str, bool]:
     """加载图像，支持本地文件和网络 URL，返回图像路径和是否为临时文件的标志。"""

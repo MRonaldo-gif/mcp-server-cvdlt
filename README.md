@@ -19,6 +19,59 @@ Python server implementing Model Context Protocol (MCP) for image object detecti
 
 **Note**: The server requires valid image paths or URLs and access to the following model files: `yolov10b.pt` (YOLOv10 detection), `yolov8n-seg.pt` (YOLOv8 segmentation), `yolov8n-pose.pt` (YOLOv8 pose estimation), and `sam_b.pt` (Ultralytics SAM).
 
+## QucikStart
+
+### Install Dependencies
+
+```bash
+uv sync
+//如需要清华源
+uv sync --index https://pypi.tuna.tsinghua.edu.cn/simple --extra-index-url https://pypi.org/simple
+
+uv pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+```
+
+### Start Server
+
+1. **stdio 模式**：
+
+   ```bash
+   python server.py
+   ```
+
+   输出：
+
+   ```
+   使用 stdio 传输启动 MCP 服务器（YOLO）
+   ```
+
+2. **SSE 模式**：
+
+   ```bash
+   python server.py sse [端口号]
+   ```
+
+   示例：
+
+   ```bash
+   python server.py sse 8080
+   ```
+
+   输出：
+
+   ```
+   在端口 8080 上启动 MCP 服务器（YOLO），使用 SSE 传输
+   ```
+
+Moreover, users need to download the weights into the ./checkpoints directory.
+Downloads Links🔗：https://docs.ultralytics.com/models/yolov10/，https://docs.ultralytics.com/models/yolov8/，https://docs.ultralytics.com/models/sam-2/
+
+├── checkpoints
+│   ├── sam_b.pt
+│   ├── yolov10b.pt
+│   ├── yolov8n-pose.pt
+│   └── yolov8n-seg.pt
+
 ## API
 
 ### Resources

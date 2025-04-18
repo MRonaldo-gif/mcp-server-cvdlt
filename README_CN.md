@@ -1,6 +1,9 @@
 # MCP 服务器 用于 基于深度学习的计算机视觉模型
 
-基于 Python 的服务器，实现了模型上下文协议（MCP），用于图像对象检测、分割和姿势估计操作。
+基于 Python 的服务器，实现了模型上下文协议（MCP），用于图像对象检测、分割和姿势估计操作。本仓库基于Ultralytcis和ModelContextProcotol开发
+相关链接
+Ultralytics - https://github.com/ultralytics/ultralytics
+MCP of Python - https://github.com/modelcontextprotocol/python-sdk
 
 ## 功能
 
@@ -12,17 +15,57 @@
 - 集成 MCP 工具与客户端交互
 - 支持 Stdio 和 SSE 传输协议
 
+### TODO
+- 支持GroundingDINO
+- 支持YOLOE(开放世界检测模型)
+- 支持深度估计
+- 支持文生图，图生图功能
+
 **注意**：服务器需要有效的图像路径或 URL，并确保以下模型文件可用：`yolov10b.pt`（YOLOv10 检测）、`yolov8n-seg.pt`（YOLOv8 分割）、`yolov8n-pose.pt`（YOLOv8 姿势估计）、`sam_b.pt`（Ultralytics SAM）。
 
 ## 快速开始
 
 ### 依赖安装
-
-安装必要的 Python 包：
-
 ```bash
-pip install ultralytics mcp-server starlette uvicorn anyio
+uv sync
+//如需要清华源
+uv sync --index https://pypi.tuna.tsinghua.edu.cn/simple --extra-index-url https://pypi.org/simple
+
+uv pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
+
+### 启动服务器
+
+1. **stdio 模式**：
+
+   ```bash
+   python server.py
+   ```
+
+   输出：
+
+   ```
+   使用 stdio 传输启动 MCP 服务器（YOLO）
+   ```
+
+2. **SSE 模式**：
+
+   ```bash
+   python server.py sse [端口号]
+   ```
+
+   示例：
+
+   ```bash
+   python server.py sse 8080
+   ```
+
+   输出：
+
+   ```
+   在端口 8080 上启动 MCP 服务器（YOLO），使用 SSE 传输
+   ```
+
 
 此外，需要下载模型文件在checkpoints文件夹下。
 下载链接🔗：https://docs.ultralytics.com/models/yolov10/，https://docs.ultralytics.com/models/yolov8/，https://docs.ultralytics.com/models/sam-2/
