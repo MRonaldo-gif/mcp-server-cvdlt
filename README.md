@@ -2,10 +2,18 @@
 
 The repo is based on Ultralytics and Model Context procotol of Python SDK
 Related Links:
+
+MCP Playground(client) - https://github.com/MRonaldo-gif/mcp-playground-local
+
 Ultralytics - https://github.com/ultralytics/ultralytics
+
 MCP of Python - https://github.com/modelcontextprotocol/python-sdk
 
 Python server implementing Model Context Protocol (MCP) for image object detection, segmentation, and pose estimation operations.
+
+![样式图](./assets/demo.png)
+
+![detect样式图](./assets/detect_demo.png)
 
 ## Features
 
