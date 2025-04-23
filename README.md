@@ -27,6 +27,14 @@ Python server implementing Model Context Protocol (MCP) for image object detecti
 
 **Note**: The server requires valid image paths or URLs and access to the following model files: `yolov10b.pt` (YOLOv10 detection), `yolov8n-seg.pt` (YOLOv8 segmentation), `yolov8n-pose.pt` (YOLOv8 pose estimation), and `sam_b.pt` (Ultralytics SAM).
 
+
+## TODO
+
+- 3D Detection
+- AIGC(GAN, Diffusion)
+- Denso Estimation
+- Deploy DL(Deep Learning) Models
+
 ## QucikStart
 
 ### Install Dependencies
